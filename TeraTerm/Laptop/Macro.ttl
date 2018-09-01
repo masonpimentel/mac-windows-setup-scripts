@@ -1,0 +1,142 @@
+;#######################################################
+;Version 3.2 (Untested Beta Version)
+;Created on 25/03/2007
+;For Tera Term Macro Use Only
+;Created originally for Cisco Switch & Routers.
+;Customizable script, please feel free to edit it.(In fact you have to edit it)
+;For usage, execute ttpmacro.exe and select this script
+;Write all the ip addresses in sequential order in a file by the name of 'ip.txt'
+;Write all the commands in sequential order in a file by the name of 'commands.txt'
+;and place the text files in the directory as set by the 'setdir' keyword.
+;Complaints and suggestions for improvement welcome.
+;Please feel free to take it to the next level and share it with others.
+;#######################################################
+
+;######################################################
+;Main Script
+;######################################################
+
+timeout = 5
+dirname = 'D:\OneDrive\School\Class\Current\Developer\TeraTerm Instances\CPEN411'
+setdir dirname
+fileopen addressfile 'ip.txt' 0
+inputbox 'Username:' 'Username Prompt'
+Username = inputstr
+passwordbox 'Password:' 'Password Prompt'
+Password = inputstr
+yesnobox 'Is enable password authentication required?' 'Enable Password Question'
+if result=0 then
+goto jumper1
+endif
+passwordbox 'Enable Password:' 'Enable Password Prompt'
+Enable = inputstr
+:jumper1
+yesnobox 'Would you like to log the output?' 'Logging'
+Logger = result
+if Logger = 0 then
+goto looper1
+endif
+inputbox 'Directory path & name followed by \' 'Logging Directory'
+loggerpath = inputstr
+dirmaker = 'cmd /C md '
+strconcat dirmaker loggerpath
+exec dirmaker
+
+:looper1
+filereadln addressfile ip
+connect ip
+if result = 1 then
+goto fclose1
+endif
+wait 'Username:' 'Password:' '>' 'login:'
+if result = 0 then
+call terminator
+goto looper1
+elseif result = 1 then
+goto jumper4
+elseif result = 2 then
+goto jumper5
+elseif result = 3 then
+goto jumper6
+elseif result = 4 then
+goto jumper4
+endif
+:jumper4
+sendln Username
+wait 'Password:'
+:jumper5
+sendln Password
+if Logger = 0 then
+goto jumper2
+endif
+loggerfile = loggerpath
+strconcat loggerfile ip
+logopen loggerfile 0 0
+loggerfile = ''
+:jumper2
+wait '#' '>'
+if result = 0 then
+call terminator
+elseif result = 1 then
+call commander
+call terminator
+elseif result = 2 then
+:jumper6
+call enabler
+call commander
+call terminator
+endif
+goto looper1
+:fclose1
+fileclose addressfile
+closett
+end
+
+;################################################
+;Enabler is a sub-routine which provides enable password authentication.
+;################################################
+
+:enabler
+setdir dirname
+sendln 'enable'
+wait 'Password:'
+sendln Enable
+return
+
+;#####################################
+;Commander is a sub-routine which executes the
+;commands placed in 'commands.txt' file
+;#####################################
+
+:commander
+setdir dirname
+fileopen commandfile 'commands.txt' 0
+:looper2
+filereadln commandfile statement
+if result goto fclose2
+sendln statement
+wait '#' '>'
+if result = 2 then
+goto fclose2
+endif
+goto looper2
+:fclose2
+fileclose commandfile
+return
+
+;###########################################
+;Terminator is a sub-routine which provides terminal closure and
+;passing the control to the main sub-routine for loop completion.
+;###########################################
+
+:terminator
+beep
+if Logger = 0 then
+goto jumper3
+endif
+logclose
+:jumper3
+closett
+return
+
+;###########################################
