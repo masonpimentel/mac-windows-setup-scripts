@@ -9,7 +9,7 @@ Gui +AlwaysOnTop
 
 ;re-run Desktop.ahk
 ^!a::
-    Run, "C:\Work\DDrive\Work.ahk"
+    Run, "C:\Work\DDrive\Repos\setup-scripts-ensemble\Work.ahk"
 Return
 
 ;start CMDer
@@ -17,10 +17,15 @@ Return
     Run, "C:\Work\DDrive\cmder_mini\vendor\conemu-maximus5\ConEmu64.exe"
 Return
 
-; set up WebStorm and Mac Telnet window
+; set up Roku and Mac Telnet or config and CMDer windows
 ^!w::
-    WinMove, dcg-roku-mac [C:\Work\DDrive\Repos\dcg-roku-mac],  , -7, 0, 1387, 1047
+    ; Roku/Mac Telnet
+    WinMove, dcg-roku-mac [C:\Work\DDrive\Repos\dcg-roku-mac],  , -7, 0, 1380, 1047
     WinMove, Mac Telnet VT, , 1365, 0, 565, 1052
+
+    ; Config/CMDer
+    WinMove, config-foxneod [C:\Work\DDrive\Repos\config-foxneod],  , -7, 0, 1387, 1047
+    WinMove, cmd, , 1365, 0, 565, 1052
 Return
 
 ; for remapping to next tab on Mac
@@ -33,6 +38,14 @@ Return
 ^!p::
 	; prev tab
 	Send ^+{Tab}
+Return
+
+#0::
+  Send !{Right}
+Return
+
+#9::
+  Send !{Left}
 Return
 
 ^!t::
