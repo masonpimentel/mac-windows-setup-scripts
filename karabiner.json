@@ -17,92 +17,6 @@
                     {
                         "manipulators": [
                             {
-                                "description": "F5 -> fn + F5",
-                                "from": {
-                                    "key_code": "f5"
-                                },
-                                "to": [
-                                    {
-                                        "modifiers": [
-                                            "fn"
-                                        ],
-                                        "key_code": "f5"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.google\\.Chrome$"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "description": "Next tab Chrome",
-                                "from": {
-                                    "key_code": "n",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_control",
-                                            "left_option"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "modifiers": [
-                                            "left_control"
-                                        ],
-                                        "key_code": "tab"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.google\\.Chrome$"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "description": "Prev tab Chrome",
-                                "from": {
-                                    "key_code": "p",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_control",
-                                            "left_option"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "modifiers": [
-                                            "left_control",
-                                            "left_shift"
-                                        ],
-                                        "key_code": "tab"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "manipulators": [
-                            {
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
@@ -153,9 +67,14 @@
                     {
                         "manipulators": [
                             {
-                                "description": "F8 to lock screen",
+                                "description": "Right option + l to lock screen",
                                 "from": {
-                                    "key_code": "f8"
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_option"
+                                        ]
+	                                }
                                 },
                                 "to": [
                                     {
@@ -173,15 +92,45 @@
                     {
                         "manipulators": [
                             {
-                                "description": "F4 -> Shift + Command + 3",
+                                "description": "Right option + s -> Shift + Command + 3",
                                 "from": {
-                                    "key_code": "f4"
+                                    "key_code": "s",
+	                                "modifiers": {
+                                        "mandatory": [
+                                            "right_option"
+                                        ]
+	                                }
                                 },
                                 "to": [
                                     {
                                         "key_code": "3",
                                         "modifiers": [
                                             "left_shift",
+                                            "left_command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "manipulators": [
+                            {
+                                "description": "Left option + e -> Command + Control + Spacebar",
+                                "from": {
+                                    "key_code": "e",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "modifiers": [
+                                            "left_control",
                                             "left_command"
                                         ]
                                     }
