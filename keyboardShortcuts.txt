@@ -1,0 +1,8 @@
+Google Chrome
+- Reload This Page -> command + 1
+- Select Previous Tab -> command + 8
+- Back -> option left
+- Forward -> option right
+- Close Tab -> command + 2
+- Reopen Closed Tab -> command + 3
+- Select Next Tab -> command + 9

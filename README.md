@@ -1,3 +1,5 @@
-### Configuration files for Ensemble laptop
+### Configuration files
 
-TODO: rename this to `environment-config.git`
+karabiner.json -> ~/.config/karabiner
+keymap.cson -> ~/.atom
+To import aText: download, go to File -> Open to import
