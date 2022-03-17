@@ -1,0 +1,11 @@
+# work SSH identity
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519
+
+# personal SSH identity
+Host mpimentel.github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519_mpimentel
