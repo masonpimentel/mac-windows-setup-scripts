@@ -3,9 +3,13 @@ Host github.com
   HostName github.com
   User git
   IdentityFile ~/.ssh/id_ed25519
+  UseKeychain true
+  AddKeysToAgent yes
 
 # personal SSH identity
 Host mpimentel.github.com
   HostName github.com
   User git
   IdentityFile ~/.ssh/id_ed25519_mpimentel
+  UseKeychain true
+  AddKeysToAgent yes
