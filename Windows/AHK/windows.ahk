@@ -4,38 +4,17 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #SingleInstance force
 
-; CTRL + 1: reload
-; CTRL + 2: close
-; CTRL + 3: reopen
-; CTRL + 5: nav back
-; CTRL + 6: nav forward
-; CTRL + 8: left tab
-; CTRL + 9: right tab
+; CTRL + Shift + l: restart Logitech Gaming Software
+; CTRL + Shift + e: restart Windows explorer
 
-^1::
-  Send ^r
+^+l::
+  Process, Close, LCore.exe
+  Sleep, 2000
+  Run "C:\Program Files\Logitech Gaming Software\LCore.exe"
 Return
 
-^2::
-  Send ^w
-Return
-
-^3::
-  Send ^+t
-Return
-
-!4::
-  Send !{Right}
-Return
-
-!5::
-  Send !{Left}
-Return
-
-^8::
-  Send ^+{Tab}
-Return
-
-^9::
-  Send ^{Tab}
+^+e::
+  Process, Close, explorer.exe
+  Sleep, 2000
+  Run "C:\Windows\explorer.exe"
 Return
