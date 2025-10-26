@@ -1,0 +1,4 @@
+New horizontal split: Alt + Shift + "-"
+New vertical split: Alt + Shift + "+"
+
+Close pane: Ctrl + Shift + W
