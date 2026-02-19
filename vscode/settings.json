@@ -1,0 +1,34 @@
+{
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "editor.minimap.enabled": false,
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "editor.rulers": [
+        80, 120
+    ],
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "files.autoSave": "onFocusChange",
+    "workbench.editor.wrapTabs": true,
+    "editor.wordWrap": "on",
+    "python.analysis.extraPaths": [""],
+    "pylint.args": [
+        "load-plugins=pylint_django"
+    ],
+    "mypy.dmypyExecutable": "/Users/masonpimentel/.local/share/virtualenvs/advent-of-code-2024-TN7HFu3A/bin/dmypy",
+    "mypy.mypyExecutable": "/Users/masonpimentel/.local/share/virtualenvs/advent-of-code-2024-TN7HFu3A/bin/mypy",
+    "pylint.cwd": "/Users/masonpimentel/.local/share/virtualenvs/advent-of-code-2024-TN7HFu3A",
+    "mypy-type-checker.args": [
+        "",
+        "--python-executable=/Users/masonpimentel/.local/share/virtualenvs/advent-of-code-2024-TN7HFu3A/bin/python"
+    ],
+}
