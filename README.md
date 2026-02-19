@@ -6,7 +6,7 @@ I was onboarding at a new job, setting my my new laptop and realized it would be
 
 ### Configuration files
 
-Note that VSCode settings should be backed up to Github masonpimentel
+Note that VSCode settings should be backed up to Github masonpimentel, otherwise there will be a potentially very stale backup in `mac-windows-setup-scripts/vscode`
 
 To import aText: download, go to File -> Open to import
 
